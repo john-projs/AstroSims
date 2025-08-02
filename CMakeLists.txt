@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.31)
+project(Astro)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(Astro main.cpp
+        include/body.h
+        include/utils.h)
