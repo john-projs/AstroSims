@@ -5,4 +5,5 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Astro main.cpp
         include/body.h
-        include/utils.h)
+        include/utils.h
+        include/gravity.h)

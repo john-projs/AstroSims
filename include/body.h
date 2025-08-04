@@ -22,13 +22,17 @@ struct Position {
 
 inline std::ostream& operator<<(std::ostream& os, const Velocity& vel)
 {
-    os << std::format("v⃗({}, {}, {})", vel.x, vel.y, vel.z);
+    const std::vector<double> args = {vel.x, vel.y, vel.z};
+    const std::string repr = "v⃗(" + join(", ", args) + ")";
+    os << repr;
     return os;
 }
 
 inline std::ostream& operator<<(std::ostream& os, const Position& pos)
 {
-    os << std::format("x⃗({}, {}, {})", pos.x, pos.y, pos.z);
+    const std::vector<double> args = {pos.x, pos.y, pos.z};
+    const std::string repr = "x⃗("+join(", ", args) + ")";
+    os << repr;
     return os;
 }
 
@@ -56,7 +60,7 @@ class Body {
 
 inline std::ostream& operator<<(std::ostream& os, const Body& bd)
 {
-    std::string velPos = to_string(bd.velocity) + " " + to_string(bd.position);
+    const std::string velPos = to_string(bd.velocity) + " " + to_string(bd.position);
     os << std::format("Body(m: {}, r: {}, ", bd.mass, bd.radius) << velPos << ")";
     return os;
 }
