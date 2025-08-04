@@ -4,65 +4,42 @@
 
 #ifndef BODY_H
 #define BODY_H
-#include<string>
 #include <iostream>
-#include "utils.h"
 
-struct Velocity {
-    double x;
-    double y;
-    double z;
+struct Vector {
+    double x = 0;
+    double y = 0;
+    double z = 0;
+
+    [[nodiscard]] double norm() const { return sqrt(x * x + y * y + z * z); }
 };
 
-struct Position {
-    double x;
-    double y;
-    double z;
-};
+std::ostream &operator<<(std::ostream &os, const Vector &vel);
 
-inline std::ostream& operator<<(std::ostream& os, const Velocity& vel)
-{
-    const std::vector<double> args = {vel.x, vel.y, vel.z};
-    const std::string repr = "v⃗(" + join(", ", args) + ")";
-    os << repr;
-    return os;
-}
+Vector operator-(const Vector &vec1, const Vector &vec2);
 
-inline std::ostream& operator<<(std::ostream& os, const Position& pos)
-{
-    const std::vector<double> args = {pos.x, pos.y, pos.z};
-    const std::string repr = "x⃗("+join(", ", args) + ")";
-    os << repr;
-    return os;
-}
-
+Vector operator+(const Vector &vec1, const Vector &vec2);
 
 class Body {
-    public:
     double mass;
     double radius;
-    Velocity velocity{};
-    Position position{};
+    Vector velocity{};
+    Vector position{};
 
-    Body(const double m, const double r, const Velocity &v, const Position &p) {
-        mass = m;
-        radius = r;
-        velocity = v;
-        position = p;
-    }
+    public:
+        Body(double m, double r, const Vector &v, const Vector &p);
 
-    void atTime(const double t) {
-        position.x = velocity.x * t;
-        position.y = velocity.y * t;
-        position.z = velocity.z * t;
-    }
+        [[nodiscard]] Vector getVelocity() const;
+
+        [[nodiscard]] Vector getPosition() const;
+
+        [[nodiscard]] double getMass() const;
+
+        [[nodiscard]] double getRadius() const;
+
+        void atTime(float t);
 };
 
-inline std::ostream& operator<<(std::ostream& os, const Body& bd)
-{
-    const std::string velPos = to_string(bd.velocity) + " " + to_string(bd.position);
-    os << std::format("Body(m: {}, r: {}, ", bd.mass, bd.radius) << velPos << ")";
-    return os;
-}
+std::ostream &operator<<(std::ostream &os, const Body &bd);
 
-#endif //BODY_H
+#endif // BODY_H

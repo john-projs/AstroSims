@@ -5,10 +5,18 @@
 #ifndef GRAVITY_H
 #define GRAVITY_H
 
-#include<string>
-#include <iostream>
-#include "utils.h"
+#include "../include/body.h"
+#include <cmath>
+
+inline double G = 6.67430 * pow(10, -11);
+inline double massEarth = 5.9722 * pow(10, 24);
+inline double massMoon = 7.346 * pow(10, 22);
+inline double radiusEarth = 6.378 * pow(10, 6);
+inline double radiusMoon = 1.7374 * pow(10, 6);
 
 
+double forceGravity(const Body &b1, const Body &b2);
 
-#endif //GRAVITY_H
+double accelGravity(const double &force, const Body &b2);
+
+#endif // GRAVITY_H
