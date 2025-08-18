@@ -14,14 +14,28 @@ System::System(const std::vector<double> &masses, const std::vector<double> &rad
     }
 }
 
+Coordinate sumForces(std::vector<Body> &bodies, int body) {
+    double f_x = 0;
+    double f_y = 0;
+    std::string system = bodies[0].getPosition().getSystem();
+    for (int j=0; j < bodies.size(); j++) {
+        if (j != body) {
+            Coordinate gravForce = vectorGravity(bodies[j], bodies[body]);
+            f_x += gravForce.getCoordinate()[0];
+            f_y += gravForce.getCoordinate()[1];
+        }
+    }
+    Coordinate forceOnBody(f_x, f_y, system);
+    return forceOnBody;
+}
+
 void System::calcForces() {
-    std::vector<double> new_forces;
-    for (int i = 0; i < bodies.size() - 1; i++) {
-        double gravForce = forceGravity(bodies[i], bodies[i + 1]);
+    std::vector<Coordinate> new_forces;
+    for (int i = 0; i < bodies.size(); i++) {
+        Coordinate gravForce = sumForces(bodies, i);
         new_forces.push_back(gravForce);
     }
-    new_forces.push_back(new_forces.at(new_forces.size() - 1));
     forces = new_forces;
 }
 
-std::vector<double> System::getForces() { return forces; }
+std::vector<Coordinate> System::getForces() { return forces; }

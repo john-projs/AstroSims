@@ -11,7 +11,7 @@
 class System {
     double time;
     std::vector<Body> bodies;
-    std::vector<double> forces;
+    std::vector<Coordinate> forces;
 
     public:
         System(const std::vector<double> &masses, const std::vector<double> &radii,
@@ -20,7 +20,7 @@ class System {
 
         void calcForces();
 
-        std::vector<double> getForces();
+        std::vector<Coordinate> getForces();
 };
 
 #endif //SYSTEM_H

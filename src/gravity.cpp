@@ -4,13 +4,18 @@
 
 #include "../include/gravity.h"
 
-double forceGravity(Body &b1, Body &b2) {
+double forceGravity(double m1, double m2, double r) {return (G * m1 * m2) / (r * r);}
+
+Coordinate vectorGravity(Body &b1, Body &b2) {
   const double m1 = b1.getMass();
   const double m2 = b2.getMass();
-  const Coordinate disp = b1.getPosition() - b2.getPosition();
-  const double r = disp.norm();
-  return (G * m1 * m2) / (r * r);
-}
+  Coordinate disp = b1.getPosition() - b2.getPosition();
+  const std::string system = disp.getSystem();
+  double forceX = forceGravity(m1, m2, disp.getCoordinate()[0]);
+  double forceY = forceGravity(m1, m2, disp.getCoordinate()[1]);
+  Coordinate force(forceX, forceY, system);
+  return force;
+  }
 
 double accelGravity(const double &force, const Body &body) {
   return force / body.getMass();
