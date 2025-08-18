@@ -5,39 +5,24 @@
 #ifndef BODY_H
 #define BODY_H
 #include <iostream>
-
-struct Vector {
-    double x = 0;
-    double y = 0;
-    double z = 0;
-
-    [[nodiscard]] double norm() const { return sqrt(x * x + y * y + z * z); }
-};
-
-std::ostream &operator<<(std::ostream &os, const Vector &vel);
-
-Vector operator-(const Vector &vec1, const Vector &vec2);
-
-Vector operator+(const Vector &vec1, const Vector &vec2);
+#include "../include/coordinates.h"
 
 class Body {
     double mass;
     double radius;
-    Vector velocity{};
-    Vector position{};
+    Coordinate velocity;
+    Coordinate position;
 
     public:
-        Body(double m, double r, const Vector &v, const Vector &p);
+        Body(double m, double r, const Coordinate &v, const Coordinate &p);
 
-        [[nodiscard]] Vector getVelocity() const;
+        [[nodiscard]] Coordinate &getVelocity();
 
-        [[nodiscard]] Vector getPosition() const;
+        [[nodiscard]] Coordinate &getPosition();
 
         [[nodiscard]] double getMass() const;
 
         [[nodiscard]] double getRadius() const;
-
-        void atTime(float t);
 };
 
 std::ostream &operator<<(std::ostream &os, const Body &bd);

@@ -15,7 +15,7 @@ inline double radiusEarth = 6.378 * pow(10, 6);
 inline double radiusMoon = 1.7374 * pow(10, 6);
 
 
-double forceGravity(const Body &b1, const Body &b2);
+double forceGravity(Body &b1, Body &b2);
 
 double accelGravity(const double &force, const Body &b2);
 
