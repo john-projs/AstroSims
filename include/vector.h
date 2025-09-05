@@ -39,10 +39,20 @@ Vector operator-(Vector &c1, Vector &c2);
 
 template <typename T> Vector operator*(Vector &c1, T &multiplier) {
   static_assert(std::is_arithmetic_v<T>, "An arithmetic type is required");
-  Vector new_vector;
   std::vector<double> new_values;
   for (double val : c1.getCoordinate()) {
     new_values.push_back(val * multiplier);
+  }
+  c1.setCoordinate(new_values);
+  return c1;
+}
+
+template <typename T> Vector operator/(Vector &c1, T divisor) {
+  static_assert(std::is_arithmetic_v<T>, "An arithmetic type is required");
+  std::vector<double> new_values;
+  for (double val : c1.getCoordinate()) {
+    double new_val = val / divisor;
+    new_values.push_back(new_val);
   }
   c1.setCoordinate(new_values);
   return c1;

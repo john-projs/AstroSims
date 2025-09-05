@@ -9,19 +9,22 @@
 #include <vector>
 
 class System {
-  int tick_rate;
-  double time;
+  int tick_rate = 100000;
   std::vector<Body> bodies;
   std::vector<Vector> forces;
 
 public:
-  System(const std::vector<double> &masses, const std::vector<double> &radii,
-         const std::vector<Vector> &velocities,
-         const std::vector<Vector> &coords);
+  System(const std::vector<std::string> &names,
+         const std::vector<double> &masses, const std::vector<double> &radii,
+         std::vector<Vector> &acceleration, std::vector<Vector> &velocities,
+         std::vector<Vector> &coords);
 
   void updateCoordinates();
   void updateVelocity();
   void updateForces();
+  void updateAcceleration();
+
+  void forwardTick();
 
   std::vector<Vector> getCoordinates();
   std::vector<Vector> getForces();

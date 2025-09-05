@@ -9,11 +9,18 @@
 #include "../include/vector.h"
 #include <cmath>
 
-inline double G = 6.67430 * pow(10, -11);
-inline double massEarth = 5.9722 * pow(10, 24);
-inline double massMoon = 7.346 * pow(10, 22);
+// Defining constants in astronomical units
+
+inline double au = 149597870700;
+inline double parsec = 3.0857 * pow(10, 16);
+inline double G = 4.3009 * pow(10, -3);
+inline double massEarth = 3.00274e-6 * pow(10, -6);
+inline double massMoon = 3.6940 * pow(10, -8);
+inline double massSun = 1.0;
 inline double radiusEarth = 6.378 * pow(10, 6);
+inline double radiusSun = 6.9634 * pow(10, 8);
 inline double radiusMoon = 1.7374 * pow(10, 6);
+inline double earthsunDistance = 4.85 * pow(10, -6);
 
 Vector vectorGravity(Body &b1, Body &b2);
 
