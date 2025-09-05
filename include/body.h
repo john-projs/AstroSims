@@ -4,21 +4,21 @@
 
 #ifndef BODY_H
 #define BODY_H
+#include "../include/vector.h"
 #include <iostream>
-#include "../include/coordinates.h"
 
 class Body {
     double mass;
     double radius;
-    Coordinate velocity;
-    Coordinate position;
+    Vector velocity;
+    Vector position;
 
     public:
-        Body(double m, double r, const Coordinate &v, const Coordinate &p);
+        Body(double m, double r, const Vector &v, const Vector &p);
 
-        [[nodiscard]] Coordinate &getVelocity();
+        [[nodiscard]] Vector &getVelocity();
 
-        [[nodiscard]] Coordinate &getPosition();
+        [[nodiscard]] Vector &getPosition();
 
         [[nodiscard]] double getMass() const;
 

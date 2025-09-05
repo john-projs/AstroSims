@@ -4,23 +4,28 @@
 
 #ifndef SYSTEM_H
 #define SYSTEM_H
-#include <vector>
 #include "body.h"
-#include "coordinates.h"
+#include "vector.h"
+#include <vector>
 
 class System {
-    double time;
-    std::vector<Body> bodies;
-    std::vector<Coordinate> forces;
+  int tick_rate;
+  double time;
+  std::vector<Body> bodies;
+  std::vector<Vector> forces;
 
-    public:
-        System(const std::vector<double> &masses, const std::vector<double> &radii,
-               const std::vector<Coordinate> &velocities,
-               const std::vector<Coordinate> &coords);
+public:
+  System(const std::vector<double> &masses, const std::vector<double> &radii,
+         const std::vector<Vector> &velocities,
+         const std::vector<Vector> &coords);
 
-        void calcForces();
+  void updateCoordinates();
+  void updateVelocity();
+  void updateForces();
 
-        std::vector<Coordinate> getForces();
+  std::vector<Vector> getCoordinates();
+  std::vector<Vector> getForces();
+  std::vector<Vector> getVelocities();
 };
 
-#endif //SYSTEM_H
+#endif // SYSTEM_H

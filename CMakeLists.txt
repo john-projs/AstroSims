@@ -9,8 +9,8 @@ add_executable(Astro src/main.cpp
         include/gravity.h
         src/body.cpp
         src/gravity.cpp
-        include/coordinates.h
-        src/coordinates.cpp
+        include/vector.h
+        src/vector.cpp
         include/system.h
         src/system.cpp
 )

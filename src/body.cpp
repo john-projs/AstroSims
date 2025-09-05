@@ -3,9 +3,9 @@
 //
 
 #include "../include/body.h"
-#include "../include/coordinates.h"
+#include "../include/vector.h"
 
-Body::Body(const double m, const double r, const Coordinate &v, const Coordinate &p) {
+Body::Body(const double m, const double r, const Vector &v, const Vector &p) {
     mass = m;
     radius = r;
     velocity = v;
@@ -13,9 +13,9 @@ Body::Body(const double m, const double r, const Coordinate &v, const Coordinate
 }
 
 
-Coordinate &Body::getVelocity() { return velocity; }
+Vector &Body::getVelocity() { return velocity; }
 
-Coordinate &Body::getPosition() { return position; }
+Vector &Body::getPosition() { return position; }
 
 double Body::getMass() const { return mass; }
 
