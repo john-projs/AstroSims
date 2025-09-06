@@ -2,7 +2,6 @@
 #include "../include/gravity.h"
 #include "../include/system.h"
 #include "../include/utils.h"
-#include "../include/vector.h"
 #include <iostream>
 
 int main() {
@@ -25,12 +24,13 @@ int main() {
 
   System system(names, masses, radii, acceleration, velocities, positions);
 
-  for (int i = 0; i < 10000; i++) {
-    system.forwardTick();
+
+  for (int i = 0; i < 100; i++) {
     std::cout << "Tick: " << i << std::endl;
     std::vector<Vector> coords = system.getCoordinates();
     Vector earth = coords[1];
     std::cout << earth << std::endl;
+    system.forwardTick();
   }
 
   return 0;

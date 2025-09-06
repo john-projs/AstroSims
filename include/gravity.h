@@ -14,7 +14,7 @@
 inline double au = 149597870700;
 inline double parsec = 3.0857 * pow(10, 16);
 inline double G = 4.3009 * pow(10, -3);
-inline double massEarth = 3.00274e-6 * pow(10, -6);
+inline double massEarth = 3.00274 * pow(10, -6);
 inline double massMoon = 3.6940 * pow(10, -8);
 inline double massSun = 1.0;
 inline double radiusEarth = 6.378 * pow(10, 6);
