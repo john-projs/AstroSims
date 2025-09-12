@@ -4,7 +4,9 @@ Gravitational Simulation
 C++ simulation exercise for generating movement of bodies
 across space using Newtonian physics. This is mostly an
 exercise to improve my own C++ skills.
+
 ---
+
 
 If you are reading this
 -----------------------
@@ -14,7 +16,9 @@ There is no easy interface to use which
 can set up the simulation for you. The main class is `System` which is hopefully self-documented
 enough to be
 used by anyone but otherwise just feel to reach out to me on GitHub or LinkedIn.
+
 ---
+
 
 General Structure
 -----------------
@@ -25,7 +29,9 @@ General Structure
 
 `System`: Main class, constructs multiple `Body` instances, calculates the sum of forces on each
 body and updates its `Vector` attributes accordingly.
+
 ---
+
 
 Running System
 --------------
@@ -41,6 +47,7 @@ and read it using Python(Pandas -> plot on Plotly).
 
 ---
 
+
 Further updates
 ---------------
 
@@ -53,6 +60,7 @@ Further updates
    then this should be a case of just trimming the Matrix.
 
 ---
+
 
 A note on units
 ---------------
