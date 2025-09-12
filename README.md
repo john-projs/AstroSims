@@ -67,6 +67,7 @@ A note on units
 I finished my Physics studies in 2022 and I spent most of my time setting as many constants as I
 could to 1.
 Sadly for this repository I have decided to use units, and the general style can be found in
-`include/gravity.h`. The main constant, `G`, is defined as $km^{3} M_{*}^{-1} s^{-2}$ where $M_{*}$
+`include/gravity.h`. The main constant, `G`, is defined as $`km^{3} M_{*}^{-1} s^{-2}`$ where $
+`M_{*}`$
 is a solar mass, see https://en.wikipedia.org/wiki/Gravitational_constant. Other constants are
 defined around this, and it is important when picking a `tick_rate`.
