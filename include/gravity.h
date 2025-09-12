@@ -13,14 +13,25 @@
 
 inline double au = 149597870700;
 inline double parsec = 3.0857 * pow(10, 16);
-inline double G = 4.3009 * pow(10, -3);
+
+// G defined in km^3 * Solar Mass^-1 * s^-2
+inline double G = 1.327124 * pow(10, 11);
+
+// Defined in Solar Masses
 inline double massEarth = 3.00274 * pow(10, -6);
 inline double massMoon = 3.6940 * pow(10, -8);
 inline double massSun = 1.0;
+
+// Defined in km
 inline double radiusEarth = 6.378 * pow(10, 6);
 inline double radiusSun = 6.9634 * pow(10, 8);
 inline double radiusMoon = 1.7374 * pow(10, 6);
-inline double earthsunDistance = 4.85 * pow(10, -6);
+inline double earthsunDistance = 1.4960 * pow(10, 8);
+inline double aphelion = 1.5210 * pow(10, 8);
+inline double perihelion = 1.4710 * pow(10, 8);
+// Speed in km
+inline double speedAtAphelion = 29.29;
+inline double speedAtPerihelion = 30.29;
 
 Vector vectorGravity(Body &b1, Body &b2);
 

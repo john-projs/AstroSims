@@ -9,7 +9,8 @@
 #include <vector>
 
 class System {
-  int tick_rate = 100000;
+  int tick_rate = 86400;
+  int tick = 0;
   std::vector<Body> bodies;
   std::vector<Vector> forces;
 
@@ -29,6 +30,7 @@ public:
   std::vector<Vector> getCoordinates();
   std::vector<Vector> getForces();
   std::vector<Vector> getVelocities();
+  std::vector<std::string> getLabels();
 };
 
 #endif // SYSTEM_H

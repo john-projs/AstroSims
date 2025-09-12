@@ -31,6 +31,8 @@ public:
   [[nodiscard]] double getMass() const;
 
   [[nodiscard]] double getRadius() const;
+
+  std::string getLabel();
 };
 
 std::ostream &operator<<(std::ostream &os, const Body &bd);

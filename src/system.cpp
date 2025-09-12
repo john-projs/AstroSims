@@ -67,7 +67,6 @@ void System::updateForces() {
 }
 
 void System::updateAcceleration() {
-  std::vector<Vector> new_acceleration;
   for (int i = 0; i < bodies.size(); i++) {
     double inv_mass = 1 / bodies[i].getMass();
     Vector accelOnBody = forces[i] * inv_mass;
@@ -85,9 +84,26 @@ std::vector<Vector> System::getCoordinates() {
   return coords;
 }
 
+std::vector<Vector> System::getVelocities() {
+  std::vector<Vector> velocities;
+  for (auto &body : bodies) {
+    velocities.push_back(body.getVelocity());
+  }
+  return velocities;
+}
+
+std::vector<std::string> System::getLabels() {
+  std::vector<std::string> labels;
+  for (auto &body : bodies) {
+    labels.push_back(body.getLabel());
+  }
+  return labels;
+}
+
 void System::forwardTick() {
   updateForces();
   updateAcceleration();
   updateVelocity();
   updateCoordinates();
+  tick++;
 }

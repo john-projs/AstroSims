@@ -31,3 +31,5 @@ void Body::setPosition(Vector p) { position = p; }
 double Body::getMass() const { return mass; }
 
 double Body::getRadius() const { return radius; }
+
+std::string Body::getLabel() { return label; }
