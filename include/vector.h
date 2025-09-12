@@ -14,6 +14,8 @@ class Vector {
 public:
   Vector(std::initializer_list<double> values, std::string sys);
 
+  Vector(const std::vector<double> &values, const std::string &sys);
+
   Vector();
 
   void toPolar();

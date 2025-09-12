@@ -12,6 +12,11 @@ Vector::Vector(std::initializer_list<double> values, std::string sys) {
   system = sys;
 }
 
+Vector::Vector(const std::vector<double> &values, const std::string &sys) {
+  elements = values;
+  system = sys;
+}
+
 Vector::Vector() {
   elements = {0, 0};
   system = "cartesian";
@@ -79,7 +84,7 @@ Vector operator+(Vector &c1, Vector &c2) {
   for (int i = 0; i < pos1.size(); i++) {
     new_pos.push_back(pos1[i] + pos2[i]);
   }
-  Vector new_coord({new_pos[0], new_pos[1]}, "cartesian");
+  Vector new_coord(new_pos, "cartesian");
   if (system == "polar") {
     new_coord.toPolar();
   }
@@ -97,7 +102,7 @@ Vector operator-(Vector &c1, Vector &c2) {
   for (int i = 0; i < pos1.size(); i++) {
     new_pos.push_back(pos1[i] - pos2[i]);
   }
-  Vector new_coord({new_pos[0], new_pos[1]}, "cartesian");
+  Vector new_coord(new_pos, "cartesian");
   if (system == "polar") {
     new_coord.toPolar();
   }

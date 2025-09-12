@@ -26,7 +26,7 @@ public:
   void setVelocity(Vector new_vel);
 
   [[nodiscard]] Vector &getPosition();
-  void setPosition(Vector new_pos);
+  void setPosition(const Vector &new_pos);
 
   [[nodiscard]] double getMass() const;
 

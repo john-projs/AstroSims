@@ -14,12 +14,14 @@ void writeData(int tick, std::vector<std::string> &labels,
     writer << labels[i] << ",";
     std::vector<double> coord = coords[i].getCoordinate();
     std::vector<double> vel = vels[i].getCoordinate();
+
     for (const double c : coord) {
       writer << c << ",";
     }
-    for (int i = 0; i < vel.size(); i++) {
-      const double v = vel[i];
-      if (i < vel.size() - 1)
+
+    for (int j = 0; j < vel.size(); j++) {
+      const double v = vel[j];
+      if (j < vel.size() - 1)
         writer << v << ",";
       else {
         writer << v;
@@ -50,7 +52,7 @@ int main() {
   std::vector<double> radii = {radiusSun, radiusEarth};
 
   Vector v1({0, 0, 0}, "cartesian");
-  Vector v2({0, speedAtAphelion, 0}, "cartesian");
+  Vector v2({0, 10, 0}, "cartesian");
   std::vector velocities = {v1, v2};
 
   Vector a1({0, 0, 0}, "cartesian");

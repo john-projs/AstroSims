@@ -53,7 +53,8 @@ void System::updateVelocity() {
   for (int i = 0; i < bodies.size(); i++) {
     Vector velocityOfBody = bodies[i].getVelocity();
     Vector velocityDelta = bodies[i].getAcceleration() * tick_rate;
-    bodies[i].setVelocity(velocityOfBody + velocityDelta);
+    Vector newVelocity = velocityOfBody + velocityDelta;
+    bodies[i].setVelocity(newVelocity);
   }
 }
 

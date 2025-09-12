@@ -26,7 +26,7 @@ void Body::setVelocity(Vector v) { velocity = v; }
 
 Vector &Body::getPosition() { return position; }
 
-void Body::setPosition(Vector p) { position = p; }
+void Body::setPosition(const Vector &new_pos) { position = new_pos; }
 
 double Body::getMass() const { return mass; }
 
