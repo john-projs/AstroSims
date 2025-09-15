@@ -13,4 +13,6 @@ add_executable(Astro src/main.cpp
         src/vector.cpp
         include/system.h
         src/system.cpp
+        include/datastore.h
+        src/datastore.cpp
 )

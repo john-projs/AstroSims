@@ -8,14 +8,18 @@
 #include "../include/body.h"
 #include "../include/vector.h"
 #include <cmath>
+#include <fstream>
+#include <iostream>
 
 // Defining constants in astronomical units
 
-inline double au = 149597870700;
+// Au is in km
+inline double au = 149597870.700;
 inline double parsec = 3.0857 * pow(10, 16);
 
 // G defined in km^3 * Solar Mass^-1 * s^-2
 inline double G = 1.327124 * pow(10, 11);
+inline double G_au = G / pow(au, 3);
 
 // Defined in Solar Masses
 inline double massEarth = 3.00274 * pow(10, -6);
@@ -29,6 +33,7 @@ inline double radiusMoon = 1.7374 * pow(10, 6);
 inline double earthsunDistance = 1.4960 * pow(10, 8);
 inline double aphelion = 1.5210 * pow(10, 8);
 inline double perihelion = 1.4710 * pow(10, 8);
+
 // Speed in km
 inline double speedAtAphelion = 29.29;
 inline double speedAtPerihelion = 30.29;

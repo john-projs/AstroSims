@@ -112,14 +112,10 @@ Vector operator-(Vector &c1, Vector &c2) {
 std::ostream &operator<<(std::ostream &os, Vector &c) {
   const std::string system = c.getSystem();
   const std::vector<double> pos = c.getCoordinate();
-  if (system == "cartesian") {
-    os << "x" << "(";
-  } else {
-    os << "r" << ")";
-  }
+  os << "[";
   for (int i = 0; i < pos.size() - 1; i++) {
     os << pos[i] << ", ";
   }
-  os << pos[pos.size() - 1] << ")";
+  os << pos[pos.size() - 1] << "]";
   return os;
 }

@@ -24,13 +24,19 @@ public:
   void updateVelocity();
   void updateForces();
   void updateAcceleration();
+  void setTickRate(int new_rate);
 
   void forwardTick();
 
   std::vector<Vector> getCoordinates();
   std::vector<Vector> getForces();
   std::vector<Vector> getVelocities();
+  std::vector<Vector> getAccelerations();
   std::vector<std::string> getLabels();
+  Body getBody(int index);
+
+  std::vector<std::vector<double>> unpackVector(std::vector<Vector> vec,
+                                                int index);
 };
 
 #endif // SYSTEM_H

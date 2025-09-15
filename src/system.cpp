@@ -15,6 +15,7 @@ System::System(const std::vector<std::string> &names,
               coords[i]);
     bodies.push_back(body);
   }
+  updateForces();
 }
 
 Vector sumForces(std::vector<Body> &bodies, int body) {
@@ -39,6 +40,8 @@ Vector sumForces(std::vector<Body> &bodies, int body) {
   forceOnBody.setSystem(system);
   return forceOnBody;
 }
+
+void System::setTickRate(int new_rate) { tick_rate = new_rate; }
 
 void System::updateCoordinates() {
   for (int i = 0; i < bodies.size(); i++) {
@@ -93,12 +96,32 @@ std::vector<Vector> System::getVelocities() {
   return velocities;
 }
 
+std::vector<Vector> System::getAccelerations() {
+  std::vector<Vector> accelerations;
+  for (auto &body : bodies) {
+    accelerations.push_back(body.getAcceleration());
+  }
+  return accelerations;
+}
+
 std::vector<std::string> System::getLabels() {
   std::vector<std::string> labels;
   for (auto &body : bodies) {
     labels.push_back(body.getLabel());
   }
   return labels;
+}
+
+Body System::getBody(const int index) { return bodies[index]; }
+
+std::vector<std::vector<double>> System::unpackVector(std::vector<Vector> vec,
+                                                      int index) {
+  std::vector<std::vector<double>> unpackedVector;
+  Vector _unpackedVector = vec[index];
+  std::vector<double> unpackedValues = _unpackedVector.getCoordinate();
+  unpackedVector.push_back(unpackedValues);
+
+  return unpackedVector;
 }
 
 void System::forwardTick() {

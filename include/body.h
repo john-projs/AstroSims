@@ -28,9 +28,9 @@ public:
   [[nodiscard]] Vector &getPosition();
   void setPosition(const Vector &new_pos);
 
-  [[nodiscard]] double getMass() const;
+  [[nodiscard]] double getMass();
 
-  [[nodiscard]] double getRadius() const;
+  [[nodiscard]] double getRadius();
 
   std::string getLabel();
 };

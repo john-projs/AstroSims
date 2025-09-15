@@ -28,8 +28,8 @@ Vector &Body::getPosition() { return position; }
 
 void Body::setPosition(const Vector &new_pos) { position = new_pos; }
 
-double Body::getMass() const { return mass; }
+double Body::getMass() { return mass; }
 
-double Body::getRadius() const { return radius; }
+double Body::getRadius() { return radius; }
 
 std::string Body::getLabel() { return label; }
