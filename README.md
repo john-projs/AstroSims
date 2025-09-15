@@ -7,6 +7,20 @@ exercise to improve my own C++ skills.
 
 ---
 
+Animated Outputs
+----------------
+Some example outputs from this repository, animated using the Manim library in Python.
+The actual output is a .json file indexed by body, storing its mass, radius, position, 
+velocity, accelerations and forces per tick. Each tick is equivalent to 1 day, with a 
+`tick_rate` of 86400.
+
+
+https://github.com/user-attachments/assets/d7a76a05-b9b3-4856-8469-62b165bfc056
+
+
+https://github.com/user-attachments/assets/86ce4d59-9de5-403b-9b52-70425be3c9f5
+
+
 
 If you are reading this
 -----------------------
